@@ -15,7 +15,11 @@ test("renders the summary test passed as prop", () => {
   expect(summary).toBeInTheDocument();
 });
 
-test("renders default image when image is not defined", () => {});
+test("renders default image when image is not defined", () => {
+  render(<Episode episode={exampleEpisodeData} />);
+  const img = screen.getByRole("img");
+  expect(img).not.toBeNull();
+});
 
 // ----- EXAMPLE EPISODE TEST OBJECT -----
 const exampleEpisodeData = {
