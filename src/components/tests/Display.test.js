@@ -18,4 +18,18 @@ test("renders Show component when the button is clicked ", async () => {
     expect(showContainer).toBeInTheDocument();
   });
 });
-test("renders show season options matching your data when the button is clicked", () => {});
+test("renders show season options matching your data when the button is clicked", () => {
+  render(<Show show={mockData} />);
+  const button = screen.getByText(/select a season/i);
+  fireEvent.click(button);
+  const select = screen.getByLabelText(/select a season/i);
+  expect(select).toBeInTheDocument();
+  expect(select.querySelectorAll("option")).toHaveLength(
+    mockData.seasons.length + 1
+  );
+  mockData.seasons.forEach((season) => {
+    expect(
+      screen.getByRole("option", { name: season.name })
+    ).toBeInTheDocument();
+  });
+});
