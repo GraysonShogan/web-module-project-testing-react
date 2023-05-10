@@ -8,7 +8,12 @@ test("renders without error", () => {
   render(<Episode episode={exampleEpisodeData} />);
 });
 
-test("renders the summary test passed as prop", () => {});
+test("renders the summary test passed as prop", () => {
+  const summaryText = exampleEpisodeData.summary;
+  render(<Episode episode={exampleEpisodeData} />);
+  const summary = screen.getByText(summaryText);
+  expect(summary).toBeInTheDocument();
+});
 
 test("renders default image when image is not defined", () => {});
 
