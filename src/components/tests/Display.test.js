@@ -33,3 +33,12 @@ test("renders show season options matching your data when the button is clicked"
     ).toBeInTheDocument();
   });
 });
+const mockData = {
+  name: "noodle",
+  summary: "noodle summary",
+  seasons: [
+    { name: "noodle season 1", id: "1234", episodes: null },
+    { name: "noodle season 2", id: "1235", episodes: null },
+    { name: "noodle season 3", id: "1235", episodes: null },
+  ],
+};
